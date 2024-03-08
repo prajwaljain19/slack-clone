@@ -2,15 +2,22 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './component/Header';
+import styled from 'styled-components';
+import Sidebar from './component/Sidebar';
 
 function App() {
   return (
-    <div>
+    <div className='app'>
       <Router>
-      <Header/>
-        <Routes>
-          <Route path="/" exact />
-        </Routes>
+        <>
+          <Header />
+          <AppBody>
+          <Sidebar />
+            <Routes>
+              <Route path="/" exact />
+            </Routes>
+          </AppBody>
+        </>
       </Router>
     </div>
   );
@@ -18,4 +25,7 @@ function App() {
 
 export default App;
 
-
+const AppBody = styled.div`
+  display: flex;
+  height: 100vh;
+`;

@@ -3,22 +3,27 @@ import styled from "styled-components";
 import Avatar from "@mui/material/Avatar";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import SearchIcon from '@mui/icons-material/Search';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
  
 function Header() {
     return (
         <HeaderContainer>
-            {/* Header Left */}
+            
             <HeaderLeft>
                 <HeaderAvatar alt="User Avatar" src="/path/to/avatar.jpg" />
                 <AccessTimeIcon />
             </HeaderLeft>
 
-            {/* Header Search */}
+            
              <HeaderSearch>
              <SearchIcon />
+             <input type="search" placeholder='search' />
              </HeaderSearch>
 
-            {/* Header Right */}
+             
+            <HeaderRight>
+                <HelpOutlineIcon />
+            </HeaderRight>
             
         </HeaderContainer>
     );
@@ -27,7 +32,25 @@ function Header() {
 export default Header;
 
 const HeaderSearch = styled.div`
-margin-right: 10px;
+flex: 0.5;
+opacity: 1;
+background-color: #421f44;
+border-radius: 6px;
+text-align: center;
+display: flex;
+padding: 0 50px;
+color: gray;
+border: 1px solid gray;
+
+> input {
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    min-width: 30vw;
+    outline: none;
+    color: white;
+}
+
 `;
 
 
@@ -57,10 +80,22 @@ const HeaderLeft = styled.div`
 
 `;
 
+
+const HeaderRight = styled.div`
+flex: 0.3;
+display: flex;
+align-items: flex-end;
+
+> .MuiSvgIcon-root {
+    margin-left: auto;
+    margin-right: 30px;
+}
+`;
+
 const HeaderAvatar = styled(Avatar)`
 cursor: pointer;
 
     :hover {
-        opacity: 0.8;
+        opacity: 0.8;   
     }
 `;
